@@ -22,6 +22,7 @@ class ZapriteClient:
             "content-type": "application/json",
         }
 
+    # create an order
     def create_order(self, amount: int, currency: str, external_uniq_id: str, redirect_url: str, label: str):
 
         # see if currency code is supported
@@ -45,3 +46,23 @@ class ZapriteClient:
             return response.json()
         else:
             raise Exception(f"API request failed with status {response.status_code}")
+
+    # TODO Get an order by ID
+    # GET /v1/order/{id}
+    # Get an order by either it's Zaprite ID or your own ID (externalUniqId)
+
+    # HTTP Bearer
+    # REQUEST
+    # PATH PARAMETERS
+    # * id
+    # string
+    # Zaprite ID or externalUniqId
+
+    # API Server
+    # https://api.zaprite.com
+    # Authentication
+    # HTTP Bearer in header
+    # Copy
+    # curl -X GET "https://api.zaprite.com/v1/order/" \
+    #  -H "accept: application/json"\
+    #  -H "authorization: Bearer YOUR_ZAPRITE_API_KEY" 
