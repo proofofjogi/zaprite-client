@@ -1,9 +1,10 @@
 
-import json
 import requests
 
 
 def test_currency_support(currency):
+    # not ideal like this
+    # TODO pull in from api endpoint at https://api.zaprite.com/openapi.json
     supported_currenies = ["USD","BTC","LBTC","ALL","DZD","ARS","AMD","AUD","AZN","BHD","BDT","BYN","BMD","BOB","BAM","BRL","BGN","KHR","CAD","CLP","CNY","COP","CRC","HRK","CUP","CZK","DKK","DOP","EGP","EUR","GEL","GHS","GTQ","HNL","HKD","HUF","ISK","INR","IDR","IRR","IQD","ILS","JMD","JPY","JOD","KZT","KES","KWD","KGS","LBP","MKD","MYR","MUR","MXN","MDL","MNT","MAD","MMK","NAD","NPR","TWD","NZD","NIO","NGN","NOK","OMR","PKR","PAB","PEN","PHP","PLN","GBP","QAR","RON","RUB","SAR","RSD","SGD","ZAR","KRW","SSP","VES","LKR","SEK","CHF","THB","TTD","TND","TRY","UGX","UAH","AED","UYU","UZS","VND"]
     if currency in supported_currenies:
         return True
