@@ -9,7 +9,7 @@ This python client is intended to interface with the <a href="https://api.zaprit
 No pip package available yet, make a sub-folder `zaprite` and put the init file there: `zaprite/__init__.py`.
 Then you can import
 
-`from your_module_name import ZapriteClient`
+`from zaprite import ZapriteClient`
 
 to get it going, pass your api key to the client:
 
