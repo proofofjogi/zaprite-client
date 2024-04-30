@@ -47,22 +47,15 @@ class ZapriteClient:
         else:
             raise Exception(f"API request failed with status {response.status_code}")
 
-    # TODO Get an order by ID
-    # GET /v1/order/{id}
-    # Get an order by either it's Zaprite ID or your own ID (externalUniqId)
 
-    # HTTP Bearer
-    # REQUEST
-    # PATH PARAMETERS
-    # * id
-    # string
-    # Zaprite ID or externalUniqId
+    # Get an order by ID (Zaprite ID or externalUniqId)
+    def get_order_by_id(self, order_id: str):
+        url = f"https://api.zaprite.com/v1/order/{order_id}"
+        
+        response = requests.get(url, headers=self.headers)
 
-    # API Server
-    # https://api.zaprite.com
-    # Authentication
-    # HTTP Bearer in header
-    # Copy
-    # curl -X GET "https://api.zaprite.com/v1/order/" \
-    #  -H "accept: application/json"\
-    #  -H "authorization: Bearer YOUR_ZAPRITE_API_KEY" 
+        if response.ok:
+            return response.json()
+        else:
+            raise Exception(f"API request failed with status {response.status_code}")
+
